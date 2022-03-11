@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas" width="500" height="500"
+style="border:1px solid #c3c3c3;">
+Your browser does not support the canvas element.
+</canvas>
+
+<script>
+function Shape(x, y, width, height, color) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.color = color;
+}
+
+// get canvas element.
+var elem = document.getElementById('canvas');
+
+// check if context exist
+if (elem.getContext) {
+
+    var userSp = [];
+
+    userSp.push(new Shape(12, 8, 6, 6, "#333")); // -- Head
+	userSp.push(new Shape(14, 8, 4, 2, "#999999")); // -- **
+	
+	userSp.push(new Shape(14, 14, 6, 2, "#999999")); // -- Neck
+	
+    userSp.push(new Shape(14, 16, 8, 8, "#ff0000")); // -- Body
+	userSp.push(new Shape(16, 24, 6, 2, "#999999")); // -- **
+    userSp.push(new Shape(14, 26, 8, 4, "#800000")); // -- Torso
+	
+	
+	userSp.push(new Shape(12, 16, 2, 4, "#333")); // -- armUpper_L1
+	userSp.push(new Shape(10, 20, 2, 4, "#333")); // -- armUpper_L2
+	userSp.push(new Shape(8, 22, 2, 4, "#333")); // -- armUpper_L2
+	
+	userSp.push(new Shape(22, 16, 2, 2, "#333")); // -- armUpper_R1
+	userSp.push(new Shape(24, 18, 2, 4, "#333")); // -- armUpper_R2
+	
+	userSp.push(new Shape(12, 30, 4, 6, "#333")); // -- legUpper_L
+	userSp.push(new Shape(14, 38, 4, 4, "#333")); // -- leg_L
+	userSp.push(new Shape(12, 40, 2, 2, "#333")); // -- foot_L
+	
+	userSp.push(new Shape(20, 30, 4, 6, "#333")); // -- legUpper_R
+	userSp.push(new Shape(22, 36, 4, 4, "#333")); // -- leg_R
+	userSp.push(new Shape(24, 40, 2, 2, "#333")); // -- foot_R
+	
+    context = elem.getContext('2d');
+    for (var i in userSp) {
+        prnt = userSp[i];
+        context.fillStyle = prnt.color;
+        context.fillRect(prnt.x, prnt.y, prnt.width, prnt.height);
+
+    }
+}
+</script>
+
+</body>
+</html>
